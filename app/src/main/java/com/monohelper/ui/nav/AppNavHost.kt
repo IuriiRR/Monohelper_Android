@@ -28,7 +28,9 @@ fun AppNavHost(
         composable(Routes.ACCOUNTS) {
             AccountsRoute(
                 onAccountClick = { accountId ->
-                    navController.navigate(Routes.transactions(accountId))
+                    navController.navigate(Routes.transactions(accountId)) {
+                        popUpTo(Routes.ACCOUNTS) { inclusive = true }
+                    }
                 },
             )
         }
